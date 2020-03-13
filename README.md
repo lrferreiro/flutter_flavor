@@ -4,9 +4,7 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 
 ## Getting Started
 
-### Configuration
-
-Adding package
+### Adding package
 
 ```yaml
 
@@ -14,7 +12,22 @@ flutter_flavor: <last_version>
 
 ```
 
+### Configuring
+
+```dart
+
+FlavorConfig(
+    environment: FlavorEnvironment.DEV,
+    variables: {
+        "baseUrl": "https://www.example.com",
+    }
+);
+
+```
+
 ## Example
+
+### Usage
 
 ```dart
 
