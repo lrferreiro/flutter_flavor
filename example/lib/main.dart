@@ -1,30 +1,9 @@
-# flutter_flavor
-
-flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST.
-
-## Getting Started
-
-### Configuration
-
-Adding package
-
-```yaml
-
-flutter_flavor: <last_version>
-
-```
-
-## Example
-
-```dart
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_flavor/flutter_flavor.dart';
+
 
 void main() {
     FlavorConfig(
-            environment: FlavorEnvironment.DEV,
             variables: {
                 "baseUrl": "https://www.example.com",
             });
@@ -95,5 +74,3 @@ class _MyHomePageState extends State<MyHomePage> {
         );
     }
 }
-
-```

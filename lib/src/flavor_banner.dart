@@ -14,26 +14,17 @@ class FlavorBanner extends StatelessWidget {
             return child;
         }
 
-        return Stack(
-            children: <Widget>[
-                child,
-                Container(
-                    width: 50,
-                    height: 50,
-                    child: CustomPaint(
-                        painter: BannerPainter(
-                                message: FlavorConfig.instance.environment
-                                        .toString()
-                                        .split(".")
-                                        .last,
-                                textDirection: Directionality.of(context),
-                                layoutDirection: Directionality.of(context),
-                                location: BannerLocation.topStart,
-                                color: FlavorConfig.instance.color
-                        ),
-                    ),
-                )
-            ],
+        return Directionality(
+            textDirection: TextDirection.ltr,
+            child: Banner(
+                color: FlavorConfig.instance.color,
+                message: FlavorConfig.instance.environment
+                        .toString()
+                        .split(".")
+                        .last,
+                location: BannerLocation.topStart,
+                child: child,
+            ),
         );
     }
 }

@@ -17,7 +17,7 @@ class FlavorConfig {
 
     factory FlavorConfig({ FlavorEnvironment environment: FlavorEnvironment.PROD,
                              Color color: Colors.red,
-                             @required Map<String, String> variables
+                             @required Map<String, dynamic> variables
                          }){
         _instance ??= FlavorConfig
                 ._internal(environment, color, variables);
