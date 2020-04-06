@@ -1,59 +1,5 @@
-# flutter_flavor
-
-flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST.
-
-## Screenshot
-
-![flavor_prod](https://github.com/lrferreiro/flutter_flavor/tree/master/screenshot/flavor_prod.png)
-![flavor_dev](https://github.com/lrferreiro/flutter_flavor/tree/master/screenshot/flavor_dev.png)
-
-## Getting Started
-
-### Adding package
-
-```yaml
-flutter_flavor: 0.1.1
-```
-
-### Importing package
-```yaml
-import 'package:flutter_flavor/flutter_flavor.dart';
-```
-
-### Configuring
-
-```dart
-FlavorConfig(
-    environment: FlavorEnvironment.DEV,
-    variables: {
-        "counter": 0
-        "baseUrl": "https://www.example.com",
-    }
-);
-```
-
-### Using variables
-
-```dart
-FlavorConfig.instance.variables["counter"]
-```
-
-## Example
-
-```dart
 import 'package:flutter/material.dart';
-
 import 'package:flutter_flavor/flutter_flavor.dart';
-
-void main() {
-    FlavorConfig(
-            environment: FlavorEnvironment.DEV,
-            variables: {
-                "counter": 5
-                "baseUrl": "https://www.example.com",
-            });
-    return runApp(MyApp());
-}
 
 class MyApp extends StatelessWidget {
     @override
@@ -119,9 +65,3 @@ class _MyHomePageState extends State<MyHomePage> {
         );
     }
 }
-
-```
-
-## License
-
-    MIT License
