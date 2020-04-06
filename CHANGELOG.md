@@ -1,3 +1,7 @@
+## [0.1.1]
+
+- Updated the example and added screenshots.
+
 ## [0.1.0]
 
 - Changed the FlavorBanner widget.
