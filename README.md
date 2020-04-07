@@ -12,7 +12,7 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 ### Adding package
 
 ```yaml
-flutter_flavor: 0.1.1
+flutter_flavor: ^0.1.1+1
 ```
 
 ### Importing package
@@ -35,7 +35,7 @@ FlavorConfig(
 ### Using variables
 
 ```dart
-FlavorConfig.instance.variables["counter"]
+ int _counter = FlavorConfig.instance.variables["counter"];
 ```
 
 ## Example
@@ -119,7 +119,6 @@ class _MyHomePageState extends State<MyHomePage> {
         );
     }
 }
-
 ```
 
 ## License

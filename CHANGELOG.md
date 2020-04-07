@@ -1,3 +1,7 @@
+## [0.1.1+1]
+
+- Fix example.
+
 ## [0.1.1]
 
 - Updated the example and added screenshots.
