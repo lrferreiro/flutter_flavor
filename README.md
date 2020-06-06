@@ -26,7 +26,7 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 FlavorConfig(
     environment: FlavorEnvironment.DEV,
     variables: {
-        "counter": 0
+        "counter": 0,
         "baseUrl": "https://www.example.com",
     }
 );
@@ -49,7 +49,7 @@ void main() {
     FlavorConfig(
             environment: FlavorEnvironment.DEV,
             variables: {
-                "counter": 5
+                "counter": 5,
                 "baseUrl": "https://www.example.com",
             });
     return runApp(MyApp());
