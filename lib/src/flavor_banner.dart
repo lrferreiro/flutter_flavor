@@ -18,7 +18,9 @@ class FlavorBanner extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Banner(
         color: FlavorConfig.instance.color,
-        message: FlavorConfig.instance.environment.toString().split(".").last,
+        message: (FlavorConfig.instance.name.isNotEmpty)
+            ? FlavorConfig.instance.name
+            : FlavorConfig.instance.environment.toString().split(".").last,
         location: FlavorConfig.instance.location,
         child: child,
       ),

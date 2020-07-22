@@ -1,3 +1,8 @@
+## [1.0.1]
+
+- Fix README file.
+- Added name attribute for replace the default banner name.
+
 ## [1.0.0]
 
 - Added location attribute for the banner.

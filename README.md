@@ -6,9 +6,9 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 
 ## Screenshot
 
-|               PROD              |               DEV                |               DEV                |
+|               PROD              |               DEV                |               TEST                |
 | :-----------------------------: | :------------------------------: | :------------------------------: |
-| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png)   | ![](screenshot/flavor_text.png)  |
+| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png)   | ![](screenshot/flavor_test.png)  |
 
 **Note** By default the banner is shown in `BannerLocation.topStart` and in the `PROD` environment don't showed.
 
@@ -17,7 +17,7 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 ### Adding package
 
 ```yaml
-flutter_flavor: ^0.1.1+1
+flutter_flavor: ^1.0.1
 ```
 
 ### Importing package
