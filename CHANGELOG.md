@@ -1,11 +1,11 @@
 ## [1.0.1]
 
 - Fix README file.
-- Added name attribute for replace the default banner name.
+- Added `name` attribute in `FlavorConfig` for replace the default banner name.
 
 ## [1.0.0]
 
-- Added location attribute for the banner.
+- Added `location` attribute in `FlavorConfig` for the banner.
 - Updated README file.
 
 ## [0.1.1+1]
