@@ -1,5 +1,1 @@
-enum FlavorEnvironment {
-    PROD,
-    DEV,
-    TEST
-}
+enum FlavorEnvironment { PROD, DEV, TEST }

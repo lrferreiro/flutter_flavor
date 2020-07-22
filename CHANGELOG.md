@@ -1,3 +1,8 @@
+## [1.0.0]
+
+- Added location attribute for the banner.
+- Updated README file.
+
 ## [0.1.1+1]
 
 - Fix example.

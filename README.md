@@ -1,11 +1,16 @@
 # flutter_flavor
 
+[![pub package](https://img.shields.io/pub/v/flavor.svg)](https://pub.dartlang.org/packages/flutter_flavor)
+
 flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST.
 
 ## Screenshot
 
-![flavor_prod](https://github.com/lrferreiro/flutter_flavor/tree/master/screenshot/flavor_prod.png)
-![flavor_dev](https://github.com/lrferreiro/flutter_flavor/tree/master/screenshot/flavor_dev.png)
+|               PROD              |               DEV                |               DEV                |
+| :-----------------------------: | :------------------------------: | :------------------------------: |
+| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png)   | ![](screenshot/flavor_text.png)  |
+
+**Note** By default the banner is shown in `BannerLocation.topStart` and in the `PROD` environment don't showed.
 
 ## Getting Started
 
@@ -48,6 +53,7 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 void main() {
     FlavorConfig(
             environment: FlavorEnvironment.DEV,
+            location: BannerLocation.bottomEnd,
             variables: {
                 "counter": 5
                 "baseUrl": "https://www.example.com",
