@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'flavor_environment.dart';
 
+/// FlavorConfig to configure flavors
 class FlavorConfig {
   /// FlavorEnvironment are PROP, DEV and TEST
   final FlavorEnvironment environment;
@@ -18,6 +19,7 @@ class FlavorConfig {
   /// Name is String to replace the name of current default banner name
   final String name;
 
+  /// Instance of FlavorConfig
   static FlavorConfig _instance;
 
   FlavorConfig._internal(
