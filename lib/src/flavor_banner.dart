@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'flavor_config.dart';
 import 'flavor_environment.dart';
 
+/// Widget for draw banner
 class FlavorBanner extends StatelessWidget {
+  /// Widget inside FlavorBanner
   final Widget child;
 
   FlavorBanner({Key key, @required this.child});
 
   @override
   Widget build(BuildContext context) {
+    /// The banner in the `PROD` environment don't showed
     if (FlavorConfig.instance.environment == FlavorEnvironment.PROD) {
       return child;
     }

@@ -3,10 +3,19 @@ import 'package:flutter/material.dart';
 import 'flavor_environment.dart';
 
 class FlavorConfig {
+  /// FlavorEnvironment are PROP, DEV and TEST
   final FlavorEnvironment environment;
+
+  /// Color of the banner
   final Color color;
+
+  /// Variables are dynamic
   final Map<String, dynamic> variables;
+
+  /// Location of the banner
   final BannerLocation location;
+
+  /// Name is String to replace the name of current default banner name
   final String name;
 
   static FlavorConfig _instance;
