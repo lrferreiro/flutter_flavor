@@ -1,3 +1,7 @@
+##[1.1.0]
+
+- Removed static environments
+
 ##[1.0.1+2]
 
 - Fix README file by ChangJoo-Park

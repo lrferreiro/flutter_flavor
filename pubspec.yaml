@@ -1,6 +1,6 @@
 name: flutter_flavor
-description: "flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST."
-version: 1.0.1+2
+description: "flutter_favor allows you to quickly configure and define dynamic variables for each flavor in your project. The flavors, as well as their names; they are dynamically defined by the developer or development team. In the configuration of a flavor you can set the name of each flavor, as well as the color of its banner, its location, as well as its visibility to show or hide the banner."
+version: 1.1.0
 homepage: https://github.com/lrferreiro/flutter_flavor
 
 environment:

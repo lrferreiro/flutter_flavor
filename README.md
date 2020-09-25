@@ -4,7 +4,7 @@
 [![Star on GitHub](https://img.shields.io/github/stars/lrferreiro/flutter_flavor.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/lrferreiro/flutter_flavor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
-flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST. You can also change the name of the flavor, the color and its location in your configuration.
+flutter_favor allows you to quickly configure and define dynamic variables for each flavor in your project. The flavors, as well as their names; they are dynamically defined by the developer or development team. In the configuration of a flavor you can set the name of each flavor, as well as the color of its banner, its location, as well as its visibility to show or hide the banner.
 
 ## Screenshot
 
@@ -12,14 +12,14 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 | :-----------------------------: | :----------------------------: | :-----------------------------: |
 | ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png) | ![](screenshot/flavor_test.png) |
 
-**Note** By default the banner is shown in `BannerLocation.topStart` and in the `PROD` environment don't showed.
+**Note** By default the banner is shown in `BannerLocation.topStart` and visibility is `false`.
 
 ## Getting Started
 
 ### Adding package
 
 ```yaml
-flutter_flavor: ^1.0.1+2
+flutter_flavor: ^1.1.0
 ```
 
 ### Importing package
@@ -32,10 +32,10 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 
 ```dart
 FlavorConfig(
-    environment: FlavorEnvironment.DEV,
     name: "DEVEL",
     color: Colors.red,
     location: BannerLocation.bottomStart,
+    visibility: true
     variables: {
         "counter": 0,
         "baseUrl": "https://www.example.com",
@@ -58,10 +58,10 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 
 void main() {
     FlavorConfig(
-            environment: FlavorEnvironment.DEV,
             name: "DEVEL",
             color: Colors.red,
             location: BannerLocation.bottomStart,
+            visibility: true
             variables: {
                 "counter": 5,
                 "baseUrl": "https://www.example.com",

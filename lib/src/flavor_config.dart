@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'flavor_environment.dart';
-
 /// FlavorConfig to configure flavors
 class FlavorConfig {
-  /// FlavorEnvironment are PROP, DEV and TEST
-  final FlavorEnvironment environment;
+  /// Name of flavor
+  final String name;
 
   /// Color of the banner
   final Color color;
@@ -16,27 +14,27 @@ class FlavorConfig {
   /// Location of the banner
   final BannerLocation location;
 
-  /// Name is String to replace the name of current default banner name
-  final String name;
+  /// Show or Hide banner
+  final bool visibility;
 
   /// Instance of FlavorConfig
   static FlavorConfig _instance;
 
   FlavorConfig._internal(
-      this.environment, this.color, this.location, this.name, this.variables);
+      this.name, this.visibility, this.color, this.location, this.variables);
 
   static FlavorConfig get instance {
     return _instance;
   }
 
   factory FlavorConfig(
-      {FlavorEnvironment environment: FlavorEnvironment.PROD,
+      {@required String name,
+      bool visibility: false,
       Color color: Colors.red,
       BannerLocation location: BannerLocation.topStart,
-      String name: "",
       @required Map<String, dynamic> variables}) {
     _instance ??=
-        FlavorConfig._internal(environment, color, location, name, variables);
+        FlavorConfig._internal(name, visibility, color, location, variables);
 
     return _instance;
   }
