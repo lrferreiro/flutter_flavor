@@ -33,7 +33,7 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 ```dart
 FlavorConfig(
     environment: FlavorEnvironment.DEV,
-    name: "ALPHA",
+    name: "DEVEL",
     color: Colors.red,
     location: BannerLocation.bottomStart,
     variables: {
@@ -59,7 +59,9 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 void main() {
     FlavorConfig(
             environment: FlavorEnvironment.DEV,
-            location: BannerLocation.bottomEnd,
+            name: "DEVEL",
+            color: Colors.red,
+            location: BannerLocation.bottomStart,
             variables: {
                 "counter": 5,
                 "baseUrl": "https://www.example.com",
@@ -142,8 +144,14 @@ The .vscode folder is created in the workspace, if it does not exist it can be c
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "[name-of-configuration]",
-      "program": "[project-name]/lib/main_dev.dart",
+      "name": "PROD-Flavor",
+      "program": "[project-folder]/lib/main_prod.dart",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "DEV-Flavor",
+      "program": "[project-folder]/lib/main_dev.dart",
       "request": "launch",
       "type": "dart"
     }
