@@ -1,3 +1,8 @@
+##[1.0.1+2]
+
+- Fix README file by ChangJoo-Park
+- Updated README file
+
 ##[1.0.1+1]
 
 - Updated and Fix error.

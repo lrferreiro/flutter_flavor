@@ -6,6 +6,8 @@ import 'my_app.dart';
 void main() {
   FlavorConfig(
       environment: FlavorEnvironment.DEV,
+      name: "DEVEL",
+      color: Colors.red,
       location: BannerLocation.topStart,
       variables: {
         "counter": 5,

@@ -4,13 +4,13 @@
 [![Star on GitHub](https://img.shields.io/github/stars/lrferreiro/flutter_flavor.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/lrferreiro/flutter_flavor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
-flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST.
+flutter_favor allows you a quick configuration and definition of dynamic variables for each flavor of your project. flutter_favor has 3 basic flavors defined: PROD, DEV and TEST. You can also change the name of the flavor, the color and its location in your configuration.
 
 ## Screenshot
 
-|               PROD              |               DEV                |               TEST                |
-| :-----------------------------: | :------------------------------: | :------------------------------: |
-| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png)   | ![](screenshot/flavor_test.png)  |
+|              PROD               |              DEV               |              TEST               |
+| :-----------------------------: | :----------------------------: | :-----------------------------: |
+| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png) | ![](screenshot/flavor_test.png) |
 
 **Note** By default the banner is shown in `BannerLocation.topStart` and in the `PROD` environment don't showed.
 
@@ -19,10 +19,11 @@ flutter_favor allows you a quick configuration and definition of dynamic variabl
 ### Adding package
 
 ```yaml
-flutter_flavor: ^1.0.1+1
+flutter_flavor: ^1.0.1+2
 ```
 
 ### Importing package
+
 ```yaml
 import 'package:flutter_flavor/flutter_flavor.dart';
 ```
@@ -32,6 +33,9 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 ```dart
 FlavorConfig(
     environment: FlavorEnvironment.DEV,
+    name: "ALPHA",
+    color: Colors.red,
+    location: BannerLocation.bottomStart,
     variables: {
         "counter": 0,
         "baseUrl": "https://www.example.com",
@@ -126,6 +130,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
         );
     }
+}
+```
+
+## VSCode Configuration
+
+The .vscode folder is created in the workspace, if it does not exist it can be created by hand. Inside that folder a launch.json file is created and the configuration is established inside the file. For more information, visit: https://code.visualstudio.com/docs/editor/debugging and https://go.microsoft.com/fwlink/?linkid=830387
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "[name-of-configuration]",
+      "program": "[project-name]/lib/main_dev.dart",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
 }
 ```
 
