@@ -1,3 +1,7 @@
+##[1.1.1]
+
+- Fix pubspec.yml file
+
 ##[1.1.0]
 
 - Removed static environments
