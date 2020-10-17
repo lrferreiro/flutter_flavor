@@ -5,10 +5,9 @@ import 'my_app.dart';
 
 void main() {
   FlavorConfig(
-      name: "DEVEL",
+      name: "DEVELOP",
       color: Colors.red,
       location: BannerLocation.topStart,
-      visibility: true,
       variables: {
         "counter": 5,
         "baseUrl": "https://www.example2.com",
