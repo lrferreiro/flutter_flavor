@@ -14,27 +14,21 @@ class FlavorConfig {
   /// Location of the banner
   final BannerLocation location;
 
-  /// Show or Hide banner
-  final bool visibility;
-
   /// Instance of FlavorConfig
   static FlavorConfig _instance;
 
-  FlavorConfig._internal(
-      this.name, this.visibility, this.color, this.location, this.variables);
+  FlavorConfig._internal(this.name, this.color, this.location, this.variables);
 
   static FlavorConfig get instance {
     return _instance;
   }
 
   factory FlavorConfig(
-      {@required String name,
-      bool visibility: false,
+      {String name,
       Color color: Colors.red,
       BannerLocation location: BannerLocation.topStart,
       @required Map<String, dynamic> variables}) {
-    _instance ??=
-        FlavorConfig._internal(name, visibility, color, location, variables);
+    _instance ??= FlavorConfig._internal(name, color, location, variables);
 
     return _instance;
   }
