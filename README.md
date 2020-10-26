@@ -8,6 +8,8 @@ Flavors helps us to create builds for different instances of our app. For exampl
 
 flutter_favor allows you to quickly configure and define dynamic variables for each flavor in your project. The `flavors`, as well as their names; they are dynamically defined by the developer or development team. In the configuration of a flavor you can set the `name` of each flavor, as well as the `color` and `location` of its banner. When attribute `name` is undefined or empty, the banner is hidden.
 
+You can also configure the banners independently. The aforementioned attributes are globally configured in `FlavorConfig`, but can be changed in the `FlavorBanner`.
+
 ## Screenshot
 
 |              PROD               |              DEV               |              TEST               |
@@ -21,7 +23,7 @@ flutter_favor allows you to quickly configure and define dynamic variables for e
 ### Adding package
 
 ```yaml
-flutter_flavor: ^1.1.0
+flutter_flavor: ^1.1.2
 ```
 
 ### Importing package
@@ -59,13 +61,14 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 
 void main() {
     FlavorConfig(
-            name: "DEVELOP",
-            color: Colors.red,
-            location: BannerLocation.bottomStart,
-            variables: {
-                "counter": 5,
-                "baseUrl": "https://www.example.com",
-            });
+        name: "DEVELOP",
+        color: Colors.red,
+        location: BannerLocation.bottomStart,
+        variables: {
+            "counter": 5,
+            "baseUrl": "https://www.example.com",
+        },
+    );
     return runApp(MyApp());
 }
 
@@ -73,6 +76,8 @@ class MyApp extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return FlavorBanner(
+            color: Colors.blue,
+            location: BannerLocation.topStart,
             child: MaterialApp(
                 title: 'Flutter Demo',
                 theme: ThemeData(

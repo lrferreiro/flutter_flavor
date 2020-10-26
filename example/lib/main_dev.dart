@@ -5,12 +5,13 @@ import 'my_app.dart';
 
 void main() {
   FlavorConfig(
-      name: "DEVELOP",
-      color: Colors.red,
-      location: BannerLocation.topStart,
-      variables: {
-        "counter": 5,
-        "baseUrl": "https://www.example2.com",
-      });
+    name: "DEVELOP",
+    color: Colors.red,
+    location: BannerLocation.topStart,
+    variables: {
+      "counter": 5,
+      "baseUrl": "https://www.example2.com",
+    },
+  );
   return runApp(MyApp());
 }

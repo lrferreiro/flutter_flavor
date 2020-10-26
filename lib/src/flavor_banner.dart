@@ -7,7 +7,16 @@ class FlavorBanner extends StatelessWidget {
   /// Widget inside FlavorBanner
   final Widget child;
 
-  FlavorBanner({Key key, @required this.child});
+  final Color color;
+
+  final BannerLocation location;
+
+  FlavorBanner({
+    Key key,
+    @required this.child,
+    this.color,
+    this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +28,9 @@ class FlavorBanner extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Banner(
-        color: FlavorConfig.instance.color,
+        color: color != null ? color : FlavorConfig.instance.color,
         message: FlavorConfig.instance.name,
-        location: FlavorConfig.instance.location,
+        location: location != null ? location : FlavorConfig.instance.location,
         child: child,
       ),
     );

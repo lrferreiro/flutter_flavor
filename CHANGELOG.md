@@ -1,3 +1,8 @@
+#[1.1.2]
+
+- Added `color` attribute in `FlavorBanner` for replace the global config of `FlavorConfig`.
+- Added `location` attribute in `FlavorBanner` for replace the global config of `FlavorConfig`.
+
 ##[1.1.1]
 
 - Fix pubspec.yml file
