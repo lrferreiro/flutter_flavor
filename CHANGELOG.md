@@ -1,3 +1,7 @@
+## [1.1.3]
+
+- Fix README file
+
 ## [1.1.2]
 
 - Added `color` attribute in `FlavorBanner` for replace the global config of `FlavorConfig`.
