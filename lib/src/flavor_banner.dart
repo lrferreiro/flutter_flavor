@@ -13,7 +13,7 @@ class FlavorBanner extends StatelessWidget {
 
   FlavorBanner({
     Key key,
-    @required this.child,
+    this.child,
     this.color,
     this.location,
   });
@@ -28,10 +28,20 @@ class FlavorBanner extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Banner(
-        color: color != null ? color : FlavorConfig.instance.color,
+        color: color ?? FlavorConfig.instance.color,
         message: FlavorConfig.instance.name,
         location: location != null ? location : FlavorConfig.instance.location,
         child: child,
+        textStyle: TextStyle(
+          color: (HSLColor.fromColor(color ?? FlavorConfig.instance.color)
+                      .lightness <
+                  0.8
+              ? Colors.white
+              : Colors.black87),
+          fontSize: 12.0 * 0.85,
+          fontWeight: FontWeight.w900,
+          height: 1.0,
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ class FlavorConfig {
     String name,
     Color color = Colors.red,
     BannerLocation location = BannerLocation.topStart,
-    @required Map<String, dynamic> variables,
+    Map<String, dynamic> variables,
   }) {
     _instance ??= FlavorConfig._internal(
       name,

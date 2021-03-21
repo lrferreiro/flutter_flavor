@@ -1,3 +1,7 @@
+## [1.1.4]
+
+- Added smart text color
+
 ## [1.1.3]
 
 - Fix README file
