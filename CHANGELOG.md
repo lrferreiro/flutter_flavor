@@ -1,3 +1,7 @@
+## [2.0.0]
+
+- Migrated to Null Safety
+
 ## [1.1.4]
 
 - Added smart text color

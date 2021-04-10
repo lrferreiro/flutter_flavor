@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// FlavorConfig to configure flavors
 class FlavorConfig {
   /// Name of flavor
-  final String name;
+  final String? name;
 
   /// Color of the banner
   final Color color;
@@ -12,10 +12,10 @@ class FlavorConfig {
   final BannerLocation location;
 
   /// Variables are dynamic
-  final Map<String, dynamic> variables;
+  final Map<String, dynamic>? variables;
 
   /// Instance of FlavorConfig
-  static FlavorConfig _instance;
+  static FlavorConfig? _instance;
 
   FlavorConfig._internal(
     this.name,
@@ -24,15 +24,15 @@ class FlavorConfig {
     this.variables,
   );
 
-  static FlavorConfig get instance {
+  static FlavorConfig? get instance {
     return _instance;
   }
 
   factory FlavorConfig({
-    String name,
+    String? name,
     Color color = Colors.red,
     BannerLocation location = BannerLocation.topStart,
-    Map<String, dynamic> variables,
+    Map<String, dynamic>? variables,
   }) {
     _instance ??= FlavorConfig._internal(
       name,
@@ -41,6 +41,6 @@ class FlavorConfig {
       variables,
     );
 
-    return _instance;
+    return _instance!;
   }
 }
