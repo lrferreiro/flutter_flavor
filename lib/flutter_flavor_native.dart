@@ -6,6 +6,7 @@ import "package:yaml/yaml.dart";
 const String androidManifestFile = "android/app/src/main/AndroidManifest.xml";
 const String androidBuildGradleFile = "android/app/build.gradle";
 const String iOSInfoPlistFile = "ios/Runner/Info.plist";
+const String iOSXcconfigDirectory = "ios/Flutter/";
 const String flutterFlavorKey = "flutter_flavor";
 
 execute() {
@@ -13,7 +14,6 @@ execute() {
   print("❖❖                     FLUTTER FLAVOR                     ❖❖");
   print("❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖❖");
   print("");
-  print("• Start");
 
   final Map<String, dynamic> settings = _getSettings();
   if (settings.containsKey("flavors")) {
@@ -30,10 +30,11 @@ execute() {
         Map<String, dynamic>.from(settings["dimensions"]);
 
     _configureFlavorsAndroid(dimensions, flavors);
+    _configureFlavorsIOS(dimensions, flavors);
 
     print("✔ Finished successfuly");
   } else {
-    print("✘ Finished with error");
+    print("✘ Error: Not found flavors key!");
   }
 }
 
@@ -46,7 +47,7 @@ Map<String, dynamic> _getSettings() {
   final Map yamlMap = loadYaml(yamlString);
 
   if (!(yamlMap[flutterFlavorKey] is Map)) {
-    throw new Exception("$flutterFlavorKey was not found.");
+    throw new Exception("✘ Error: Not found $flutterFlavorKey key!");
   }
 
   final Map<String, dynamic> config = <String, dynamic>{};
@@ -142,7 +143,9 @@ void _configureGoogleAdsIdAndroid() {
 /// Configure flavors in build.gradle File
 ///
 void _configureFlavorsAndroid(
-    Map<String, dynamic>? dimensions, Map<String, dynamic> flavors) {
+  Map<String, dynamic>? dimensions,
+  Map<String, dynamic> flavors,
+) {
   final File file = File(androidBuildGradleFile);
   final String buildGradleString = file.readAsStringSync();
 
@@ -264,16 +267,124 @@ void _configureFlavorsAndroid(
 ///
 /// iOS
 ///
-/// Overwrite iOS Info.plist File
+/// Configure iOS Info.plist File
 ///
-void _configureAppNameIOS() {
+void _configureBundleNameIOS() {
   final File file = File(iOSInfoPlistFile);
   final String xmlString = file.readAsStringSync();
   XmlDocument document = XmlDocument.parse(xmlString);
 
   Iterable<XmlElement> dicts = document.findAllElements('dict');
-  XmlNode dict = dicts.first;
+  XmlElement dict = dicts.first;
 
-  /*print(dict.descendants.firstWhere(
-      (element) => element.toString() == "<key>CFBundleName</key>"));*/
+  Iterable<XmlNode> keys = dict.children
+      .where((element) => element is XmlElement && element.name.local == 'key');
+
+  Iterable<XmlNode>? elements =
+      keys.where((XmlNode node) => node.text == 'CFBundleName');
+
+  if (elements.isNotEmpty) {
+    XmlNode? element = elements.first;
+
+    Iterable<XmlNode> xmlValues = element.following.where((XmlNode element) =>
+        element is XmlElement && element.name.local == 'string');
+
+    if (xmlValues.isNotEmpty) {
+      XmlText xmlText = xmlValues.first.firstChild as XmlText;
+      if (xmlText.text != "\$(BUNDLE_NAME)") {
+        xmlText.text = "\$(BUNDLE_NAME)";
+
+        file.writeAsStringSync(document.toXmlString(pretty: true));
+      }
+    }
+  }
+}
+
+///
+/// iOS
+///
+/// Configure iOS Info.plist File
+///
+void _configureLaunchStoryboardNameIOS() {
+  final File file = File(iOSInfoPlistFile);
+  final String xmlString = file.readAsStringSync();
+  XmlDocument document = XmlDocument.parse(xmlString);
+
+  Iterable<XmlElement> dicts = document.findAllElements('dict');
+  XmlElement dict = dicts.first;
+
+  Iterable<XmlNode> keys = dict.children
+      .where((element) => element is XmlElement && element.name.local == 'key');
+
+  Iterable<XmlNode>? elements =
+      keys.where((XmlNode node) => node.text == 'UILaunchStoryboardName');
+
+  if (elements.isNotEmpty) {
+    XmlNode? element = elements.first;
+
+    Iterable<XmlNode> xmlValues = element.following.where((XmlNode element) =>
+        element is XmlElement && element.name.local == 'string');
+
+    if (xmlValues.isNotEmpty) {
+      XmlText xmlText = xmlValues.first.firstChild as XmlText;
+      if (xmlText.text != "\$(ASSET_PREFIX)LaunchScreen") {
+        xmlText.text = "\$(ASSET_PREFIX)LaunchScreen";
+
+        file.writeAsStringSync(document.toXmlString(pretty: true));
+      }
+    }
+  }
+}
+
+void _createXcconfigFile(String flavor, String appName) {
+  final File fileDebug = File("$iOSXcconfigDirectory${flavor}Debug.xcconfig");
+  final File fileRelease =
+      File("$iOSXcconfigDirectory${flavor}Release.xcconfig");
+
+  StringBuffer buffer = StringBuffer();
+  buffer.writeln('#include "Generated.xcconfig"');
+  buffer.writeln();
+  buffer.writeln('FLUTTER_TARGET=lib/main-$flavor.dart');
+  buffer.writeln();
+  buffer.writeln('ASSET_PREFIX=$flavor');
+  buffer.writeln('BUNDLE_NAME=$appName');
+
+  if (!fileDebug.existsSync()) {
+    fileDebug.createSync(recursive: true);
+    fileDebug.writeAsStringSync(buffer.toString());
+  }
+
+  if (!fileRelease.existsSync()) {
+    fileRelease.createSync(recursive: true);
+    fileRelease.writeAsStringSync(buffer.toString());
+  }
+}
+
+///
+/// iOS
+///
+/// Configure flavors in iOS
+///
+void _configureFlavorsIOS(
+  Map<String, dynamic>? dimensions,
+  Map<String, dynamic> flavors,
+) {
+  flavors.forEach((key, value) {
+    Map<String, dynamic> app = Map<String, dynamic>.from(value["app"]);
+    Map<String, dynamic> ios = Map<String, dynamic>.from(value["ios"]);
+
+    if (ios.containsKey("name") &&
+        ios["name"] != null &&
+        ios["name"] is String) {
+      _configureBundleNameIOS();
+      _configureLaunchStoryboardNameIOS();
+      _createXcconfigFile(key, ios["name"]);
+    } else if (app.containsKey("name") &&
+        app["name"] != null &&
+        app["name"] is String) {
+      _configureBundleNameIOS();
+      _configureLaunchStoryboardNameIOS();
+      _createXcconfigFile(key, app["name"]);
+    }
+  });
 }

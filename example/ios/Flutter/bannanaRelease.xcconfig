@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main-bannana.dart
+
+ASSET_PREFIX=bannana
+BUNDLE_NAME=Bannana App
