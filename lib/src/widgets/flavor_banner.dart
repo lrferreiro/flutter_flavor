@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'flavor_config.dart';
+import '../util/flavor_config.dart';
 
 /// Widget for draw banner
 class FlavorBanner extends StatelessWidget {
@@ -30,7 +30,8 @@ class FlavorBanner extends StatelessWidget {
       child: Banner(
         color: color ?? FlavorConfig.instance!.color,
         message: FlavorConfig.instance!.name!,
-        location: location != null ? location! : FlavorConfig.instance!.location,
+        location:
+            location != null ? location! : FlavorConfig.instance!.location,
         child: child,
         textStyle: TextStyle(
           color: (HSLColor.fromColor(color ?? FlavorConfig.instance!.color)

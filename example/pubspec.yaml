@@ -20,3 +20,36 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+flutter_flavor:
+  dimensions:
+    android: "flutter-flavor"
+    ios: "flutter-flavor"
+
+  flavors:
+    apple:
+      app:
+        name: "Apple App"
+        id: "com.example.apple"
+      android:
+        name: "Apple App"
+        applicationId: "com.example.apple"
+        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
+        firebase: ""
+      ios:
+        name: "Apple App"
+        bundleId: "com.example.apple"
+        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
+        firebase: ""
+
+    bannana:
+      app:
+        name: "Bannana App"
+        id: "com.example.bannana"
+      android:
+        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
+        firebase: ""
+      ios:
+        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
+        firebase: ""
+
