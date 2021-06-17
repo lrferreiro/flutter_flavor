@@ -22,7 +22,7 @@ You can also configure the banners independently. The aforementioned attributes 
 ### Adding package
 
 ```yaml
-flutter_flavor: ^2.0.0
+flutter_flavor: ^3.0.0
 ```
 
 ### Importing package

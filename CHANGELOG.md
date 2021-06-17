@@ -1,3 +1,6 @@
+## [3.0.0]
+
+- Added native flavor settings
 ## [2.0.0]
 
 - Migrated to Null Safety
