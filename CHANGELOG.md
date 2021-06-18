@@ -1,6 +1,6 @@
 ## [3.0.0]
 
-- Added native flavor settings
+- Added native flavors settings on Android
 ## [2.0.0]
 
 - Migrated to Null Safety

@@ -139,6 +139,52 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
+## Support native flavors settings (For now only on Android)
+
+### Setting
+
+```yaml
+flutter_flavor:
+  dimensions:
+    android: "flutter-flavor"
+
+  flavors:
+    dev:
+      android:
+        name: "Dev App"
+        applicationId: "com.example.dev"
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
+
+    prod:
+      app:
+        name: "Prod App"
+        id: "com.example.prod"
+      android:
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
+```
+
+### Generaing flavors
+
+```json
+flutter pub run flutter_flavor:main
+```
+
+### Run flavor
+
+```
+flutter run --flavor <flavor> -t lib/main-<flavor>.dart
+```
+
+### Example
+
+```
+flutter run --flavor dev -t lib/main-dev.dart
+```
+
+```
+flutter run --flavor prod -t lib/main.dart
+```
+
 ## VSCode Configuration
 
 The .vscode folder is created in the workspace, if it does not exist it can be created by hand. Inside that folder a launch.json file is created and the configuration is established inside the file. For more information, visit: https://code.visualstudio.com/docs/editor/debugging and https://go.microsoft.com/fwlink/?linkid=830387
