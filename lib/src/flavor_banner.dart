@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../util/flavor_config.dart';
+import 'flavor_config.dart';
 
 /// Widget for draw banner
 class FlavorBanner extends StatelessWidget {

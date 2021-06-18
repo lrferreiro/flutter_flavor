@@ -28,28 +28,21 @@ flutter_flavor:
 
   flavors:
     apple:
-      app:
-        name: "Apple App"
-        id: "com.example.apple"
       android:
         name: "Apple App"
         applicationId: "com.example.apple"
-        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
-        firebase: ""
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
       ios:
         name: "Apple App"
         bundleId: "com.example.apple"
-        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
-        firebase: ""
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
 
     bannana:
       app:
         name: "Bannana App"
         id: "com.example.bannana"
       android:
-        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
-        firebase: ""
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
       ios:
-        googleAdsId: "ca-app-pub-2647501935956905~7733581172"
-        firebase: ""
+        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
 

@@ -30,7 +30,6 @@ execute() {
         Map<String, dynamic>.from(settings["dimensions"]);
 
     _configureFlavorsAndroid(dimensions, flavors);
-    _configureFlavorsIOS(dimensions, flavors);
 
     print("✔ Finished successfuly");
   } else {
@@ -198,7 +197,12 @@ void _configureFlavorsAndroid(
   buffer.writeln('    productFlavors {');
 
   flavors.forEach((key, value) {
-    Map<String, dynamic> app = Map<String, dynamic>.from(value["app"]);
+    Map<String, dynamic>? app;
+
+    if (value["app"] != null) {
+      app = Map<String, dynamic>.from(value["app"]);
+    }
+
     Map<String, dynamic> android = Map<String, dynamic>.from(value["android"]);
 
     String flavorName = key;
@@ -216,7 +220,8 @@ void _configureFlavorsAndroid(
         android["applicationId"] != null &&
         android["applicationId"] is String) {
       buffer.writeln('            applicationId "${android["applicationId"]}"');
-    } else if (app.containsKey("id") &&
+    } else if (app != null &&
+        app.containsKey("id") &&
         app["id"] != null &&
         app["id"] is String) {
       buffer.writeln('            applicationId "${app["id"]}"');
@@ -230,7 +235,8 @@ void _configureFlavorsAndroid(
       _configureAppNameAndroid();
       buffer.writeln(
           '            resValue "string", "app_name", "${android["name"]}"');
-    } else if (app.containsKey("name") &&
+    } else if (app != null &&
+        app.containsKey("name") &&
         app["name"] != null &&
         app["name"] is String) {
       _configureAppNameAndroid();
@@ -264,7 +270,7 @@ void _configureFlavorsAndroid(
   file.writeAsStringSync(buffer.toString());
 }
 
-///
+/*///
 /// iOS
 ///
 /// Configure iOS Info.plist File
@@ -336,6 +342,10 @@ void _configureLaunchStoryboardNameIOS() {
   }
 }
 
+///
+/// iOS
+///
+///
 void _createXcconfigFile(String flavor, String appName) {
   final File fileDebug = File("$iOSXcconfigDirectory${flavor}Debug.xcconfig");
   final File fileRelease =
@@ -387,4 +397,4 @@ void _configureFlavorsIOS(
       _createXcconfigFile(key, app["name"]);
     }
   });
-}
+}*/
