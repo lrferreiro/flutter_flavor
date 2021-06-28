@@ -22,12 +22,12 @@ You can also configure the banners independently. The aforementioned attributes 
 ### Adding package
 
 ```yaml
-flutter_flavor: ^3.0.0
+flutter_flavor: ^3.0.1
 ```
 
 ### Importing package
 
-```yaml
+```dart
 import 'package:flutter_flavor/flutter_flavor.dart';
 ```
 
@@ -163,7 +163,7 @@ flutter_flavor:
         googleAdsId: "ca-app-pub-1234567890123456~1234567890"
 ```
 
-### Generaing flavors
+### Generating flavors
 
 ```json
 flutter pub run flutter_flavor:main
