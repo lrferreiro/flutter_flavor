@@ -12,29 +12,31 @@ class FlavorConfig {
   final BannerLocation location;
 
   /// Variables are dynamic
-  final Map<String, dynamic>? variables;
+  final Map<String, dynamic> variables;
 
-  /// Instance of FlavorConfig
+  /// Private constructor
+  FlavorConfig._internal(this.name, this.color, this.location, this.variables);
+
+  /// Internal instance of FlavorConfig
   static FlavorConfig? _instance;
 
-  FlavorConfig._internal(
-    this.name,
-    this.color,
-    this.location,
-    this.variables,
-  );
+  /// Instance of FlavorConfig
+  static FlavorConfig get instance {
+    if (_instance == null) {
+      _instance = FlavorConfig();
+    }
 
-  static FlavorConfig? get instance {
-    return _instance;
+    return _instance!;
   }
 
+  /// Factory constructor
   factory FlavorConfig({
     String? name,
     Color color = Colors.red,
     BannerLocation location = BannerLocation.topStart,
-    Map<String, dynamic>? variables,
+    Map<String, dynamic> variables = const {},
   }) {
-    _instance ??= FlavorConfig._internal(
+    _instance = FlavorConfig._internal(
       name,
       color,
       location,

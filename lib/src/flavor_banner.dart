@@ -20,21 +20,20 @@ class FlavorBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (FlavorConfig.instance!.name == null ||
-        FlavorConfig.instance!.name!.isEmpty) {
+    if (FlavorConfig.instance.name == null ||
+        FlavorConfig.instance.name!.isEmpty) {
       return child!;
     }
 
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Banner(
-        color: color ?? FlavorConfig.instance!.color,
-        message: FlavorConfig.instance!.name!,
-        location:
-            location != null ? location! : FlavorConfig.instance!.location,
+        color: color ?? FlavorConfig.instance.color,
+        message: FlavorConfig.instance.name!,
+        location: location != null ? location! : FlavorConfig.instance.location,
         child: child,
         textStyle: TextStyle(
-          color: (HSLColor.fromColor(color ?? FlavorConfig.instance!.color)
+          color: (HSLColor.fromColor(color ?? FlavorConfig.instance.color)
                       .lightness <
                   0.8
               ? Colors.white
