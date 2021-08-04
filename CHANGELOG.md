@@ -1,3 +1,7 @@
+## [3.0.3]
+
+- Fixed README file
+
 ## [3.0.2]
 
 - Fixed errors detected and updated README file
