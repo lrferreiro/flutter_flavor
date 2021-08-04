@@ -213,7 +213,7 @@ The .vscode folder is created in the workspace, if it does not exist it can be c
 
 I work on this project in my little free time because my personal life and my work occupy me a lot of time. But you can push me to work more on this project if you invite me to coffe.
 
-<img src="https://github.com/imaNNeoFighT/fl_chart/raw/master/repo_files/images/bitcoin_public_key.jpg" width="180" >
+<img src="https://github.com/lrferreiro/flutter_flavor/blob/master/screenshot/bitcoin_wallet.jpg" width="180" >
 
 `bc1qgvpj768nrym9rclycc5n92g87z6utwkh5j5x8j`
 
