@@ -209,7 +209,7 @@ The .vscode folder is created in the workspace, if it does not exist it can be c
 }
 ```
 
-### Donation (Bitcoin)
+## Donation (Bitcoin)
 
 I work on this project in my little free time because my personal life and my work occupy me a lot of time. But you can push me to work more on this project if you invite me to coffe.
 
