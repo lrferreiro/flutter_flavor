@@ -1,3 +1,7 @@
+## [3.0.4]
+
+- Aqui van los nuevos cambios de los issues
+
 ## [3.0.3]
 
 - Fixed README file
