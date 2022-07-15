@@ -1,6 +1,10 @@
+## [3.1.0]
+
+- Migrating to flutter 3
+
 ## [3.0.4]
 
-- Aqui van los nuevos cambios de los issues
+- Here are the new changes of the issues
 
 ## [3.0.3]
 
@@ -17,6 +21,7 @@
 ## [3.0.0]
 
 - Added native flavors settings on Android
+
 ## [2.0.0]
 
 - Migrated to Null Safety
