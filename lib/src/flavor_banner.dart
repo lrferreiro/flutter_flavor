@@ -7,16 +7,18 @@ class FlavorBanner extends StatelessWidget {
   /// Widget inside FlavorBanner
   final Widget? child;
 
+  /// Color of the banner
   final Color? color;
 
+  /// Location of the banner
   final BannerLocation? location;
 
-  FlavorBanner({
+  const FlavorBanner({
     Key? key,
     this.child,
     this.color,
     this.location,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,6 @@ class FlavorBanner extends StatelessWidget {
         color: color ?? FlavorConfig.instance.color,
         message: FlavorConfig.instance.name!,
         location: location != null ? location! : FlavorConfig.instance.location,
-        child: child,
         textStyle: TextStyle(
           color: (HSLColor.fromColor(color ?? FlavorConfig.instance.color)
                       .lightness <
@@ -42,6 +43,7 @@ class FlavorBanner extends StatelessWidget {
           fontWeight: FontWeight.w900,
           height: 1.0,
         ),
+        child: child,
       ),
     );
   }

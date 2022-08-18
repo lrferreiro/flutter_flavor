@@ -1,6 +1,6 @@
 name: flutter_flavor
 description: "We can create different flavors, and thus have different instances of our apps before publishing it on the App Store and Google Play."
-version: 3.1.0
+version: 3.1.1
 homepage: https://github.com/lrferreiro/flutter_flavor
 
 environment:
@@ -11,9 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  xml: ^6.1.0
-  yaml: ^3.1.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.0

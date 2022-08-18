@@ -22,9 +22,7 @@ class FlavorConfig {
 
   /// Instance of FlavorConfig
   static FlavorConfig get instance {
-    if (_instance == null) {
-      _instance = FlavorConfig();
-    }
+    _instance ??= FlavorConfig();
 
     return _instance!;
   }

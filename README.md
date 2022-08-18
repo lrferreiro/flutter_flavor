@@ -22,7 +22,7 @@ You can also configure the banners independently. The aforementioned attributes 
 ### Adding package
 
 ```yaml
-flutter_flavor: ^3.0.4
+flutter_flavor: ^3.1.1
 ```
 
 ### Importing package
@@ -139,55 +139,13 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-## Support native flavors settings (For now only on Android)
+## Native flavor
 
-### Setting
-
-```yaml
-flutter_flavor:
-  dimensions:
-    android: "flutter-flavor"
-
-  flavors:
-    dev:
-      android:
-        name: "Dev App"
-        applicationId: "com.example.dev"
-        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
-
-    prod:
-      app:
-        name: "Prod App"
-        id: "com.example.prod"
-      android:
-        googleAdsId: "ca-app-pub-1234567890123456~1234567890"
-```
-
-### Generating flavors
-
-```json
-flutter pub run flutter_flavor:main
-```
-
-### Run flavor
-
-```
-flutter run --flavor <flavor> -t lib/main-<flavor>.dart
-```
-
-### Example
-
-```
-flutter run --flavor dev -t lib/main-dev.dart
-```
-
-```
-flutter run --flavor prod -t lib/main.dart
-```
+For native flavors use the package <https://pub.dev/packages/flutter_flavorizr>
 
 ## VSCode Configuration
 
-The .vscode folder is created in the workspace, if it does not exist it can be created by hand. Inside that folder a launch.json file is created and the configuration is established inside the file. For more information, visit: https://code.visualstudio.com/docs/editor/debugging and https://go.microsoft.com/fwlink/?linkid=830387
+The .vscode folder is created in the workspace, if it does not exist it can be created by hand. Inside that folder a launch.json file is created and the configuration is established inside the file. For more information, visit: <https://code.visualstudio.com/docs/editor/debugging> and <https://go.microsoft.com/fwlink/?linkid=830387>
 
 ```json
 {
@@ -209,14 +167,6 @@ The .vscode folder is created in the workspace, if it does not exist it can be c
 }
 ```
 
-## Donation (Bitcoin)
-
-I work on this project in my little free time because my personal life and my work occupy me a lot of time. But you can push me to work more on this project if you invite me to coffe.
-
-![](https://github.com/lrferreiro/flutter_flavor/blob/master/screenshot/bitcoin_wallet.jpg)
-
-`bc1qgvpj768nrym9rclycc5n92g87z6utwkh5j5x8j`
-
 ## License
 
-    MIT License
+MIT License
