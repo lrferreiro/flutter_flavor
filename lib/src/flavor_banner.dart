@@ -22,8 +22,7 @@ class FlavorBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (FlavorConfig.instance.name == null ||
-        FlavorConfig.instance.name!.isEmpty) {
+    if (FlavorConfig.instance.name?.isEmpty == true) {
       return child!;
     }
 
@@ -31,14 +30,10 @@ class FlavorBanner extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Banner(
         color: color ?? FlavorConfig.instance.color,
-        message: FlavorConfig.instance.name!,
-        location: location != null ? location! : FlavorConfig.instance.location,
+        message: FlavorConfig.instance.name ?? "",
+        location: location ?? FlavorConfig.instance.location,
         textStyle: TextStyle(
-          color: (HSLColor.fromColor(color ?? FlavorConfig.instance.color)
-                      .lightness <
-                  0.8
-              ? Colors.white
-              : Colors.black87),
+          color: _color,
           fontSize: 12.0 * 0.85,
           fontWeight: FontWeight.w900,
           height: 1.0,
@@ -47,4 +42,9 @@ class FlavorBanner extends StatelessWidget {
       ),
     );
   }
+
+  Color get _color =>
+      HSLColor.fromColor(color ?? FlavorConfig.instance.color).lightness < 0.8
+          ? Colors.white
+          : Colors.black87;
 }

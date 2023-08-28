@@ -1,3 +1,9 @@
+# Changelog
+
+## 3.1.2
+
+- Migrated to flutter 3.13
+
 ## 3.1.1
 
 - Fix suggestion of best practices

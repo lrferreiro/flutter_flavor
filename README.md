@@ -13,7 +13,7 @@ You can also configure the banners independently. The aforementioned attributes 
 
 |              PROD               |              DEV               |              TEST               |
 | :-----------------------------: | :----------------------------: | :-----------------------------: |
-| ![](screenshot/flavor_prod.png) | ![](screenshot/flavor_dev.png) | ![](screenshot/flavor_test.png) |
+| ![Screenshot Prod](screenshot/flavor_prod.png) | ![Screenshot Dev](screenshot/flavor_dev.png) | ![Screenshot Test](screenshot/flavor_test.png) |
 
 **Note** By default the banner is shown in `BannerLocation.topStart` and is visibility only when the attribute `name` of configuration is defined and not empty.
 

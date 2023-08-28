@@ -13,5 +13,6 @@ void main() {
       "baseUrl": "https://www.example2.com",
     },
   );
-  return runApp(const MyApp());
+
+  runApp(const MyApp());
 }
