@@ -22,7 +22,8 @@ class FlavorBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (FlavorConfig.instance.name?.isEmpty == true) {
+    if (FlavorConfig.instance.name == null ||
+        FlavorConfig.instance.name?.isEmpty == true) {
       return child!;
     }
 

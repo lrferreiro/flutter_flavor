@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.3
+
+- Fix FlavorBanner
+
 ## 3.1.2
 
 - Migrated to flutter 3.13
