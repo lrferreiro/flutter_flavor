@@ -29,7 +29,7 @@ class _FlavorBannerState extends State<FlavorBanner> {
   Widget build(BuildContext context) {
     if (FlavorConfig.instance.name?.isNotEmpty == true) {
       return Directionality(
-        textDirection: Directionality.of(context),
+        textDirection: TextDirection.ltr,
         child: Banner(
           color: widget.color ?? FlavorConfig.instance.color,
           message: FlavorConfig.instance.name ?? "",
