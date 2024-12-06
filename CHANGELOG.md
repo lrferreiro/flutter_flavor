@@ -3,6 +3,7 @@
 ## 3.1.4
 
 - Upgraded dependencies
+- Updated example project
 
 ## 3.1.3
 
