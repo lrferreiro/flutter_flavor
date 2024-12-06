@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.4
+
+- Upgraded dependencies
+
 ## 3.1.3
 
 - Fix FlavorBanner

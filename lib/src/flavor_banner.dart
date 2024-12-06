@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'flavor_config.dart';
 
 /// Widget for draw banner
-class FlavorBanner extends StatelessWidget {
+class FlavorBanner extends StatefulWidget {
   /// Widget inside FlavorBanner
   final Widget? child;
 
@@ -14,38 +14,44 @@ class FlavorBanner extends StatelessWidget {
   final BannerLocation? location;
 
   const FlavorBanner({
-    Key? key,
+    super.key,
     this.child,
     this.color,
     this.location,
-  }) : super(key: key);
+  });
 
   @override
+  State<FlavorBanner> createState() => _FlavorBannerState();
+}
+
+class _FlavorBannerState extends State<FlavorBanner> {
+  @override
   Widget build(BuildContext context) {
-    if (FlavorConfig.instance.name == null ||
-        FlavorConfig.instance.name?.isEmpty == true) {
-      return child!;
+    if (FlavorConfig.instance.name?.isNotEmpty == true) {
+      return Directionality(
+        textDirection: Directionality.of(context),
+        child: Banner(
+          color: widget.color ?? FlavorConfig.instance.color,
+          message: FlavorConfig.instance.name ?? "",
+          location: widget.location ?? FlavorConfig.instance.location,
+          textStyle: TextStyle(
+            color: _color,
+            fontSize: 12.0 * 0.85,
+            fontWeight: FontWeight.w900,
+            height: 1.0,
+          ),
+          child: widget.child,
+        ),
+      );
     }
 
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Banner(
-        color: color ?? FlavorConfig.instance.color,
-        message: FlavorConfig.instance.name ?? "",
-        location: location ?? FlavorConfig.instance.location,
-        textStyle: TextStyle(
-          color: _color,
-          fontSize: 12.0 * 0.85,
-          fontWeight: FontWeight.w900,
-          height: 1.0,
-        ),
-        child: child,
-      ),
-    );
+    return widget.child!;
   }
 
   Color get _color =>
-      HSLColor.fromColor(color ?? FlavorConfig.instance.color).lightness < 0.8
+      HSLColor.fromColor(widget.color ?? FlavorConfig.instance.color)
+                  .lightness <
+              0.8
           ? Colors.white
           : Colors.black87;
 }

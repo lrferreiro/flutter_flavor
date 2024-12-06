@@ -1,9 +1,10 @@
 # flutter_flavor
 
 [![pub package](https://img.shields.io/pub/v/flutter_flavor.svg)](https://pub.dev/packages/flutter_flavor)
+[![Star on Github](https://img.shields.io/github/stars/lrferreiro/flutter_flavor.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://pub.dev/packages/flutter_flavor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
-Flavors helps us to create builds for different instances of our app. For example, we can create a flavor for development, a flavor for production and another flavor for a demo of the app. In this way we can create different flavors, and thus have different instances of our apps before publishing it on the App Store and Google Play.
+Flavors helps us to create builds for different instances of our app. For example, we can create a flavor for development, a flavor for production and another flavor for a demo of the app. In this way we can create different flavors, and thus have different instances of our apps before publishing it on the App Store and Google Play.  
 
 flutter_favor allows you to quickly configure and define dynamic variables for each flavor in your project. The `flavors`, as well as their names; they are dynamically defined by the developer or development team. In the configuration of a flavor you can set the `name` of each flavor, as well as the `color` and `location` of its banner. When attribute `name` is undefined or empty, the banner is hidden.
 
@@ -22,7 +23,7 @@ You can also configure the banners independently. The aforementioned attributes 
 ### Adding package
 
 ```yaml
-flutter_flavor: ^3.1.1
+flutter_flavor: ^3.1.4
 ```
 
 ### Importing package
